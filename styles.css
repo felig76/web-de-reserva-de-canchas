@@ -1,0 +1,46 @@
+/* Estilo para el contenedor de reservas */
+#listasReservasDiarias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las listas */
+    justify-content: space-between; /* Alinea los contenedores con espacio entre ellos */
+}
+
+/* Estilo para cada contenedor de día */
+.dia-semana {
+    flex: 0 0 200px; /* Tamaño fijo para cada contenedor, 200px en este caso */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-width: 200px; /* Asegura que el ancho mínimo sea 200px */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Estilo para el encabezado de cada día */
+.dia-semana h3 {
+    margin-top: 0;
+    color: #00796b;
+}
+
+/* Estilo para la lista de reservas */
+.dia-semana ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para cada ítem de reserva */
+.reserva-item {
+    background-color: #e0f7fa;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reserva-item:hover {
+    background-color: #b2ebf2;
+}
