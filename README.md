@@ -42,3 +42,5 @@ https://docs.google.com/document/d/13pKaxUB-yNgMZ_fSxwnoKZ1IjpNhDR9dJ3wBgQfKjOc/
 ### Product list:
 https://docs.google.com/document/d/1eXtSfyRFrKN54EJ5LREIs0zLvEImILz1uDqoG59bBKs/edit?usp=sharing
 
+## Diagrama de Gantt:
+![alt text](https://github.com/felig76/web-de-reserva-de-canchas/blob/main/imagenes/Diagrama%20de%20Gantt.png)
