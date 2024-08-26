@@ -29,3 +29,7 @@ Desarrollar una página web intuitiva y funcional para la reserva de canchas de 
    - **Seguridad:** Implementación de medidas de seguridad para proteger la información del usuario y las transacciones realizadas.
    - **Base de Datos:** Sistema de base de datos para almacenar información sobre usuarios, canchas, horarios y reservas.
 
+
+### Documento de investigación:
+https://docs.google.com/document/d/1lI5x8H-xdL4F025yJKCU4iFlIuoeXsaNYvHgmf5oFEM/edit?usp=sharing
+
