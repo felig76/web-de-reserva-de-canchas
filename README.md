@@ -35,3 +35,6 @@ https://docs.google.com/document/d/1lI5x8H-xdL4F025yJKCU4iFlIuoeXsaNYvHgmf5oFEM/
 
 ## Prototipo inicial
 ![alt text](https://github.com/felig76/web-de-reserva-de-canchas/blob/main/imagenes/prototipado%20rapido.png)
+
+###  Requerimientos del cliente:
+https://docs.google.com/document/d/13pKaxUB-yNgMZ_fSxwnoKZ1IjpNhDR9dJ3wBgQfKjOc/edit?usp=sharing
