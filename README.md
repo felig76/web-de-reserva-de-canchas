@@ -42,24 +42,3 @@ https://docs.google.com/document/d/13pKaxUB-yNgMZ_fSxwnoKZ1IjpNhDR9dJ3wBgQfKjOc/
 ### Product list:
 https://docs.google.com/document/d/1eXtSfyRFrKN54EJ5LREIs0zLvEImILz1uDqoG59bBKs/edit?usp=sharing
 
-gantt
-    title Diagrama de Gantt para el Proyecto de Reserva de Canchas de Paintball
-    dateFormat  YYYY-MM-DD
-    section Planificación
-    Análisis de Requisitos        :a1, 2024-09-01, 10d
-    Investigación de Mercado       :a2, after a1, 10d
-    Diseño Inicial                 :a3, after a2, 10d
-    section Desarrollo
-    Configuración de Entorno       :b1, 2024-09-15, 5d
-    Desarrollo de Frontend         :b2, 2024-09-20, 20d
-    Desarrollo de Backend          :b3, 2024-09-20, 25d
-    Integración de Base de Datos   :b4, 2024-10-10, 15d
-    Implementación de Sistema de Pago :b5, after b4, 10d
-    section Pruebas
-    Pruebas de Funcionalidad       :c1, 2024-10-25, 10d
-    Pruebas de Seguridad           :c2, after c1, 5d
-    Pruebas de Usabilidad          :c3, after c2, 7d
-    section Despliegue
-    Preparación para Despliegue    :d1, 2024-11-05, 5d
-    Despliegue en Producción       :d2, 2024-11-10, 3d
-    Monitoreo y Ajustes            :d3, after d2, 10d
