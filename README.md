@@ -33,3 +33,5 @@ Desarrollar una página web intuitiva y funcional para la reserva de canchas de 
 ### Documento de investigación:
 https://docs.google.com/document/d/1lI5x8H-xdL4F025yJKCU4iFlIuoeXsaNYvHgmf5oFEM/edit?usp=sharing
 
+## Prototipo inicial
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
