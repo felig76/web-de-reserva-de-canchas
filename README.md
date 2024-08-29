@@ -10,7 +10,7 @@
 
 ## Documentación
 
-**Objetivo del Proyecto:**
+[objetivo-del-proyecto]**Objetivo del Proyecto:**
 Desarrollar una página web intuitiva y funcional para la reserva de canchas de paintball. La plataforma permitirá a los usuarios registrarse, iniciar sesión, seleccionar canchas, elegir horarios disponibles y confirmar reservas, todo a través de una interfaz sencilla y accesible.
 
 ## Características Principales
