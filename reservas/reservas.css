@@ -44,3 +44,13 @@
 .reserva-item:hover {
     background-color: #b2ebf2;
 }
+
+.reserva-item.disponible {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.reserva-item.reservado {
+    background-color: #e67e22;
+    color: #fff;
+}
