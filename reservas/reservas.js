@@ -1,3 +1,7 @@
+import reservasLocal from "./mocks/registrosReservasLocal.json"
+
+const HORAS_TURNOS = ['08:00', '11:00', '14:00', '17:00', '20:00'];
+
 function obtenerSieteDias() {
   const days = [];
   const today = new Date();
@@ -15,7 +19,6 @@ function obtenerSieteDias() {
   
   return days;
 }
-const HORAS_TURNOS = ['08:00', '11:00', '14:00', '17:00', '20:00'];
 
 document.getElementById('selectCancha').addEventListener('change', function() {
   var valorSeleccionado = this.value;
@@ -33,8 +36,9 @@ function mostrarOpcionesReservas(numeroCancha) {
   const dias = obtenerSieteDias();
 
   if (numeroCancha != 0) {
-    // Obtener registros de reservas usando el código php y transformarlo a formato json
-    /*fetch('reservas.php').then(response => response.json()).then(reservas => {*/
+    
+    // Obtener registros de reservas usando el código php desde base de datos y transformarlo a formato json
+    fetch('reservas.php').then(response => response.json()).then(reservas => {
 
       for (let i = 0; i < dias.length; i++) {
         // Crear un nuevo contenedor para cada día
@@ -51,7 +55,7 @@ function mostrarOpcionesReservas(numeroCancha) {
         
         // Agregar elementos a la lista de reservas
         for (let j = 0; j < HORAS_TURNOS.length; j++) {
-          var estaReservado = reservasHechas.find(r => 
+          var estaReservado = reservas.find(r => 
             r.fecha_reserva === dias[i] &&
             r.hora_inicio === HORAS_TURNOS[j] &&
             r.cancha === numeroCancha
@@ -77,80 +81,7 @@ function mostrarOpcionesReservas(numeroCancha) {
         contenedorReservas.appendChild(diaContenedor);
       }
 
-    /*})*/
+    })
 
   }
 }
-  
-let reservasHechas = [
-  {
-      "id": 1,
-      "fecha_reserva": "08-25",
-      "hora_inicio": "10:00",
-      "cancha": 1,
-      "usuario_id": 1
-  },
-  {
-      "id": 2,
-      "fecha_reserva": "08-25",
-      "hora_inicio": "13:00",
-      "cancha": 7,
-      "usuario_id": 2
-  },
-  {
-      "id": 3,
-      "fecha_reserva": "08-25",
-      "hora_inicio": "16:00",
-      "cancha": 2,
-      "usuario_id": null
-  },
-  {
-      "id": 4,
-      "fecha_reserva": "08-26",
-      "hora_inicio": "09:00",
-      "cancha": 7,
-      "usuario_id": null
-  },
-  {
-      "id": 5,
-      "fecha_reserva": "08-26",
-      "hora_inicio": "12:00",
-      "cancha": 3,
-      "usuario_id": 3
-  },
-  {
-      "id": 6,
-      "fecha_reserva": "08-26",
-      "hora_inicio": "15:00",
-      "cancha": 7,
-      "usuario_id": 4
-  },
-  {
-      "id": 7,
-      "fecha_reserva": "08-27",
-      "hora_inicio": "08:00",
-      "cancha": 4,
-      "usuario_id": null
-  },
-  {
-      "id": 8,
-      "fecha_reserva": "08-27",
-      "hora_inicio": "11:00",
-      "cancha": 7,
-      "usuario_id": null
-  },
-  {
-      "id": 9,
-      "fecha_reserva": "08-27",
-      "hora_inicio": "14:00",
-      "cancha": 5,
-      "usuario_id": 5
-  },
-  {
-      "id": 10,
-      "fecha_reserva": "08-27",
-      "hora_inicio": "17:00",
-      "cancha": 6,
-      "usuario_id": 6
-  }
-];
