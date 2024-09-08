@@ -1,34 +1,45 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header('Content-Type: application/json');
 
 // Configuración de la base de datos
+
+$servername = "localhost";
+$username = "root";
+$password = ""; // XAMPP no tiene contraseña para MySQL por defecto
+$dbname = "reservas_paintball";
+/*
 $servername = "sql111.infinityfree.com"; // Cambiar si es necesario
 $username = "if0_37225004"; // Cambiar por tu usuario de base de datos
 $password = "6dQGvZ15Uh"; // Cambiar por tu contraseña de base de datos
 $dbname = "if0_37225004_ReservasEzeizaPaintball"; // Cambiar por el nombre de tu base de datos
+*/
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+try {
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
-// Consulta SQL para obtener las reservas
-$sql = "SELECT id, fecha_reserva, hora_inicio, cancha, usuario_id FROM Reservas";
-$result = $conn->query($sql);
-
-$reservas = array();
-
-if ($result->num_rows > 0) {
-    // Output de cada fila
-    while($row = $result->fetch_assoc()) {
-        $reservas[] = $row;
+    if ($conn->connect_error) {
+        throw new Exception("Conexión fallida: " . $conn->connect_error);
     }
+
+    $sql = "SELECT * FROM Reservas";  // Ejemplo de consulta
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $reservas = [];
+
+        while($row = $result->fetch_assoc()) {
+            $reservas[] = $row;
+        }
+
+        echo json_encode($reservas);
+    } else {
+        echo json_encode([]);
+    }
+
+    $conn->close();
+} catch (Exception $e) {
+    echo json_encode(['error' => $e->getMessage()]);
 }
-
-$conn->close();
-
-echo json_encode($reservas);
 ?>
