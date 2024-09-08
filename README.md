@@ -1,5 +1,6 @@
 # Página Web de Reserva de Canchas de Paintball
---
+
+---
 ### trabajar en el desarrollo
 - runear un live server en vscode
 - cambiar las variables de base de datos a locales en el .php
@@ -7,7 +8,8 @@
 - correr en phpmyadmin el código de 'script.sql'
 - asegurarse de hacer buenos commits y que cada uno contenga un cambio específico de una nueva función y no de varios cambios cortos a diferentes archivos. para eso, otro commit
 - listo
---
+---
+
 ## Documentación
 
 **Objetivo del Proyecto:**
