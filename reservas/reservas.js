@@ -1,4 +1,4 @@
-import reservasLocal from "./mocks/registrosReservasLocal.json"
+//import reservasLocal from "./mocks/registrosReservasLocal.json"
 
 const HORAS_TURNOS = ['08:00', '11:00', '14:00', '17:00', '20:00'];
 
