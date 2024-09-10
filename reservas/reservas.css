@@ -4,65 +4,83 @@ body {
     background-color: rgb(27, 27, 27);
     color: rgb(235, 235, 235);
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
 }
 
-
-
-
-/* Estilo para el contenedor de reservas */
-#listasReservasDiarias {
+header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Espacio entre las listas */
-    justify-content: space-between; /* Alinea los contenedores con espacio entre ellos */
+    justify-content: space-between; /* Distribuye el contenido */
+    align-items: center;
+    padding: 1em 3em 1em 3em;
+}
+header div {
+    display: flex;
+    gap: 1em;
+}
+header div #tituloSubpagina{
+    font-weight: 300;
+}
+header a {
+    background-color: rgb(14, 14, 14);
+    color: rgb(235, 235, 235);
+    text-decoration: none;
+    padding: 1em;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
 }
 
-/* Estilo para cada contenedor de día */
+main {
+    margin: 3em;
+    padding: 1em;
+}
+
 .dia-semana {
-    flex: 0 0 200px; /* Tamaño fijo para cada contenedor, 200px en este caso */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    min-width: 200px; /* Asegura que el ancho mínimo sea 200px */
-    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    margin: 1em;
+    padding: 2em;
+    background-color: rgb(14, 14, 14);
+    border-radius: 1em;
 }
 
-/* Estilo para el encabezado de cada día */
 .dia-semana h3 {
     margin-top: 0;
-    color: #00796b;
+    color: rgb(235, 235, 235);
 }
 
-/* Estilo para la lista de reservas */
 .dia-semana ul {
+    display: flex;
+    gap: 1em;
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-/* Estilo para cada ítem de reserva */
 .reserva-item {
-    background-color: #e0f7fa;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
+    display: grid;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    min-height: 7em;
+    border-radius: 0.5em;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.reserva-item:hover {
-    background-color: #b2ebf2;
 }
 
 .reserva-item.disponible {
-    background-color: #2ecc71;
-    color: #fff;
+    background-color: #01bd1a;
 }
 
 .reserva-item.reservado {
-    background-color: #e67e22;
-    color: #fff;
+    background-color: #c04600;
+    cursor:default;
+}
+
+
+select {
+    background-color: rgb(8, 8, 8);
+    color: rgb(235, 235, 235);
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+}
+main label {
+    font-weight: 400;
 }
