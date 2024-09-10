@@ -44,7 +44,7 @@ function mostrarOpcionesReservas(numeroCancha) {
         
         // Crear un encabezado con la fecha para el día
         var encabezadoDia = document.createElement('h3');
-        encabezadoDia.textContent = dias[i];
+        encabezadoDia.textContent = formatearFecha(dias[i]);
         diaContenedor.appendChild(encabezadoDia);
         
         // Crear una lista desordenada para las reservas del día
@@ -60,7 +60,7 @@ function mostrarOpcionesReservas(numeroCancha) {
           );
           console.log(estaReservado);
           var nuevaTarjetaReserva = document.createElement('li');
-          nuevaTarjetaReserva.textContent = `Cancha ${numeroCancha}, horario ${HORAS_TURNOS[j]}, día ${dias[i]}`;
+          nuevaTarjetaReserva.textContent = `Cancha ${numeroCancha}, horario ${HORAS_TURNOS[j]}, día ${formatearFecha(dias[i])}`;
           nuevaTarjetaReserva.classList.add('reserva-item');
           if (estaReservado) {
             nuevaTarjetaReserva.classList.add('reservado');
@@ -82,4 +82,9 @@ function mostrarOpcionesReservas(numeroCancha) {
     })
 
   }
+}
+
+function formatearFecha(fecha) {
+  let partes = fecha.split("-"); // Divide la fecha por el guión
+  return `${partes[2]}/${partes[1]}/${partes[0]}`; // Reordena las partes como día/mes/año
 }
