@@ -7,7 +7,7 @@
 - cambiar las variables de base de datos a locales en el .php
 - prender server mysql y apache desde xampp
 - correr en phpmyadmin el código de 'script.sql'
-- en el navegador escribir 'http://localhost/web-de-reserva-de-canchas-main/reservas/reservas.html '
+- en el navegador escribir 'http://localhost/web-de-reserva-de-canchas/reservas/reservas.html '
 - asegurarse de hacer buenos commits y que cada uno contenga un cambio específico de una nueva función y no de varios cambios cortos a diferentes archivos. para eso, otro commit
 - listo
 ---
