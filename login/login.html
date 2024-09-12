@@ -13,6 +13,20 @@
             <h1 id="tituloSubpagina">Ingresar</h1>
         </div>
     </header>
+    <div class="login-container">
+        <h1 id="titulo-ingresar">Iniciar Sesión</h1>
+        <form id="loginForm" method="POST">
+            <label for="username">Usuario</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p id="login-message" data-resultado=""></p>
+    </div>
+    <script src="login.js"></script>
     
 </body>
 </html>
