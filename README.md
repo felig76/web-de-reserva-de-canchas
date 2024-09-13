@@ -45,7 +45,7 @@ Desarrollar una página web intuitiva y funcional para la reserva de canchas de 
 https://docs.google.com/document/d/1lI5x8H-xdL4F025yJKCU4iFlIuoeXsaNYvHgmf5oFEM/edit?usp=sharing
 
 ## Prototipo inicial
-![alt text](https://github.com/felig76/web-de-reserva-de-canchas/blob/main/imagenes/prototipado%20rapido.png)
+![alt text](https://github.com/felig76/web-de-reserva-de-canchas/blob/main/docs/prototipado%20rapido.png)
 
 ###  Requerimientos del cliente:
 https://docs.google.com/document/d/13pKaxUB-yNgMZ_fSxwnoKZ1IjpNhDR9dJ3wBgQfKjOc/edit?usp=sharing
@@ -54,4 +54,4 @@ https://docs.google.com/document/d/13pKaxUB-yNgMZ_fSxwnoKZ1IjpNhDR9dJ3wBgQfKjOc/
 https://docs.google.com/document/d/1eXtSfyRFrKN54EJ5LREIs0zLvEImILz1uDqoG59bBKs/edit?usp=sharing
 
 ## Diagrama de Gantt:
-![alt text](https://github.com/felig76/web-de-reserva-de-canchas/blob/main/imagenes/Diagrama%20de%20Gantt.png)
+![alt text](https://github.com/felig76/web-de-reserva-de-canchas/blob/main/docs/Diagrama%20de%20Gantt.png)
