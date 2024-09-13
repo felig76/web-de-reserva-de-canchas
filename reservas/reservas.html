@@ -12,7 +12,8 @@
             <h1 id="titulo">Ezeiza Paintball</h1>
             <h1 id="tituloSubpagina">Reservas</h1>
         </div>
-        <a type="button" href="http://ingresar.ezeizapaintball.infinityfreeapp.com">Ingresar</a>
+        <button id="btnUsuario">Ingresar</button>
+        <div id="panelUsuario"></div>
     </header>
     <main>
         <label for="selectCancha">Elija una cancha para reservar:</label>
@@ -27,6 +28,10 @@
             <option value=7>Cancha Profesional</option>
         </select>
         <div id="listasReservasDiarias"></div>
+        <div id="reservaPanel" style="display: none;">
+            <div id="reservaDetalles"></div>
+            <button id="cerrarPanel">Cerrar</button>
+        </div>
     </main>
     <footer>
        
