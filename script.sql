@@ -23,12 +23,12 @@ CREATE TABLE IF NOT EXISTS Reservas (
 
 -- Insertar datos de prueba en la tabla de usuarios
 INSERT INTO Usuarios (id, nombre, contrasenia) VALUES
-(1, 'Juan Pérez', 'juan123'),
-(2, 'Ana Gómez', 'ana456'),
-(3, 'Carlos Sánchez', 'carlos789'),
-(4, 'Laura Fernández', 'laura1011'),
-(5, 'Marta López', 'marta1213'),
-(6, 'Pedro Martínez', 'pedro1415');
+(1, 'Juan Perez', 'juan123'),
+(2, 'Ana Gomez', 'ana456'),
+(3, 'Carlos Sanchez', 'carlos789'),
+(4, 'Laura Fernandez', 'laura1011'),
+(5, 'Marta Lopez', 'marta1213'),
+(6, 'Pedro Martinez', 'pedro1415');
 
 -- Insertar 20 registros en la tabla Reservas con fechas a partir del 10/09/2024 y horarios específicos
 INSERT INTO Reservas (fecha_reserva, hora_inicio, cancha, usuario_id) VALUES
