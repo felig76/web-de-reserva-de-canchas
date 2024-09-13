@@ -7,12 +7,10 @@ function obtenerSieteDias() {
   for (let i = 0; i < 7; i++) {
     let day = new Date(today);
     day.setDate(today.getDate() + i);
-    // Obtener el año, mes y día
-    const year = day.getFullYear();
+    const year = day.getFullYear(); // Obtener el año, mes y día
     const month = String(day.getMonth() + 1).padStart(2, '0'); // Mes en formato de dos dígitos
     const date = String(day.getDate()).padStart(2, '0'); // Día en formato de dos dígitos
-    // Crear la fecha en formato YYYY-MM-DD
-    const formattedDate = `${year}-${month}-${date}`;
+    const formattedDate = `${year}-${month}-${date}`; // Crear la fecha en formato YYYY-MM-DD
     days.push(formattedDate);
   }
   
@@ -21,10 +19,15 @@ function obtenerSieteDias() {
 
 document.getElementById('selectCancha').addEventListener('change', function() {
   var valorSeleccionado = this.value;
-  mostrarOpcionesReservas(valorSeleccionado);
+  if (valorSeleccionado > 6){
+    var tipoCancha = "Cancha profesional"
+  } else {
+    var tipoCancha = `Cancha amateur ${this.value}`
+  }
+  mostrarOpcionesReservas(valorSeleccionado, tipoCancha);
 });
 
-function mostrarOpcionesReservas(numeroCancha) {
+function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
   numeroCancha = Number(numeroCancha);
   var contenedorReservas = document.getElementById('listasReservasDiarias');
   contenedorReservas.innerHTML = '';
@@ -59,14 +62,16 @@ function mostrarOpcionesReservas(numeroCancha) {
             r.cancha === numeroCancha
           );
           console.log(estaReservado);
-          var nuevaTarjetaReserva = document.createElement('li');
-          nuevaTarjetaReserva.textContent = `Cancha ${numeroCancha}, horario ${HORAS_TURNOS[j]}, día ${formatearFecha(dias[i])}`;
+          var nuevaTarjetaReserva = document.createElement('button');
+          nuevaTarjetaReserva.textContent = `${HORAS_TURNOS[j]}, ${formatearFecha(dias[i])} - ${nombreCancha}`;
           nuevaTarjetaReserva.classList.add('reserva-item');
           if (estaReservado) {
             nuevaTarjetaReserva.classList.add('reservado');
             nuevaTarjetaReserva.textContent += ' - Reservado';
+            nuevaTarjetaReserva.disabled = true;
           } else {
             nuevaTarjetaReserva.classList.add('disponible');
+            nuevaTarjetaReserva.textContent += ' - Disponible';
           }
           nuevaTarjetaReserva.setAttribute('data-cancha', numeroCancha);
           nuevaTarjetaReserva.setAttribute('data-horario', HORAS_TURNOS[j]);
@@ -80,6 +85,26 @@ function mostrarOpcionesReservas(numeroCancha) {
       }
 
     })
+
+    // Mostrar el panel con detalles al hacer clic en una reserva
+    document.querySelectorAll('.reserva-disponible').forEach(reserva => {
+      reserva.addEventListener('click', function() {
+          // Verificar si el usuario está logueado
+          if (usuarioLogueado) {
+              const detalles = `Reserva para la cancha ${this.dataset.cancha} a las ${this.dataset.hora} del ${this.dataset.fecha}`;
+              document.getElementById('reservaDetalles').textContent = detalles;
+              document.getElementById('reservaPanel').style.display = 'block';
+          } else {
+              alert('Debes iniciar sesión para reservar.');
+          }
+      });
+    });
+
+    // Cerrar el panel flotante
+    document.getElementById('cerrarPanel').addEventListener('click', function() {
+      document.getElementById('reservaPanel').style.display = 'none';
+    });
+
 
   }
 }
