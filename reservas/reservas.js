@@ -119,15 +119,6 @@ function actualizarEstadoBoton() {
   }
 }
 
-// Evento para cerrar sesión
-document.getElementById('btnCerrarSesion').addEventListener('click', function() {
-  if (usuarioLogueado()) {
-      localStorage.removeItem('usuarioLogueado');
-      alert('Has cerrado sesión.');
-      actualizarEstadoBoton();
-  }
-});
-
 // Llamar la función al cargar la página
 document.addEventListener('DOMContentLoaded', actualizarEstadoBoton);
 
