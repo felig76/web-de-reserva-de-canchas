@@ -9,12 +9,13 @@ body {
 }
 
 .login-container {
-    background-color: rgb(14, 14, 14);
+    background-color: rgb(0, 0, 0);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
     text-align: center;
+    margin-top: 5rem;
+    width: 20rem;
 }
 
 h1 {
@@ -34,21 +35,21 @@ label {
 }
 
 input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+    margin: 0.5rem;
+    padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
 button {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin: 1rem;
 }
 
 button:hover {
