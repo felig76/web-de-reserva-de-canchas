@@ -69,21 +69,22 @@ function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
 
     // Agregar listener para todas las tarjetas de reserva creadas
     document.getElementById('listasReservasDiarias').addEventListener('click', function(event) {
+      console.log('Elemento clicado:', event.target); // Verifica el elemento clicado
       if (event.target.classList.contains('reserva-item')) {
-        const botonReserva = event.target;
-        if (usuarioLogueado()) {
-            
-          document.getElementById('reservaPanel').style.display = 'block';
-        } else {
-          manejarAvisoEstadoLogeo();
-        }
+          console.log('Tarjeta de reserva clicada:', event.target); // Verifica el elemento clicado
+          if (usuarioLogueado()) {
+              document.getElementById('reservaPanel').style.display = 'block';
+              console.log("Panel mostrado");
+          } else {
+              manejarAvisoEstadoLogeo();
+          }
       }
-    });
-
+  });
     // Cerrar el panel flotante
     document.getElementById('cerrarPanelReserva').addEventListener('click', function() {
-      document.getElementById('panelReserva').style.display = 'none';
-    });
+      document.getElementById('reservaPanel').style.display = 'none';
+  });
+  
 
   }
 }
