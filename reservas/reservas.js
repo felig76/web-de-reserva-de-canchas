@@ -13,8 +13,8 @@ document.getElementById('selectCancha').addEventListener('change', function() {
 
 function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
   numeroCancha = Number(numeroCancha);
-  var contenedorReservas = document.getElementById('listasReservasDiarias');
-  contenedorReservas.innerHTML = '';
+  var listasReservasDiarias = document.getElementById('listasReservasDiarias');
+  listasReservasDiarias.innerHTML = '';
 
   // Obtener los próximos 7 días
   const dias = obtenerProximosSieteDias();
@@ -25,19 +25,16 @@ function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
     fetch('reservas.php').then(response => response.json()).then(reservas => {
 
       for (let i = 0; i < dias.length; i++) {
-        // Crear un nuevo contenedor para cada día
+
         var diaContenedor = document.createElement('div');
         diaContenedor.className = 'dia-semana';
         
-        // Crear un encabezado con la fecha para el día
         var encabezadoDia = document.createElement('h3');
         encabezadoDia.textContent = formatearFecha(dias[i]);
         diaContenedor.appendChild(encabezadoDia);
-        
-        // Crear una lista desordenada para las reservas del día
+
         var listaReservas = document.createElement('ul');
-        
-        // Agregar elementos a la lista de reservas
+
         for (let j = 0; j < HORAS_TURNOS.length; j++) {
 
           var estaReservado = reservas.find(r => 
@@ -45,7 +42,7 @@ function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
             r.hora_inicio === HORAS_TURNOS[j] &&
             r.cancha === numeroCancha
           );
-          console.log(estaReservado);
+
           var nuevaTarjetaReserva = document.createElement('button');
           nuevaTarjetaReserva.textContent = `${HORAS_TURNOS[j]}, ${formatearFecha(dias[i])} - ${nombreCancha}`;
           nuevaTarjetaReserva.classList.add('reserva-item');
@@ -65,71 +62,80 @@ function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
         }
         
         diaContenedor.appendChild(listaReservas);
-        contenedorReservas.appendChild(diaContenedor);
+        listasReservasDiarias.appendChild(diaContenedor);
       }
 
     })
 
-    // Mostrar el panel con detalles al hacer clic en una reserva
-    document.querySelectorAll('.reserva-item.disponible').forEach(botonReserva => {
-      botonReserva.addEventListener('click', function() {
-          // Verificar si el usuario está logueado
+    // Agregar listener para todas las tarjetas de reserva creadas
+    document.getElementById('listasReservasDiarias').addEventListener('click', function(event) {
+      console.log('Elemento clicado:', event.target); // Verifica el elemento clicado
+      if (event.target.classList.contains('reserva-item')) {
+          console.log('Tarjeta de reserva clicada:', event.target); // Verifica el elemento clicado
           if (usuarioLogueado()) {
-              const detalles = `Reserva para la cancha ${this.dataset.cancha} a las ${this.dataset.hora} del ${this.dataset.fecha}`;
-              document.getElementById('reservaDetalles').textContent = detalles;
               document.getElementById('reservaPanel').style.display = 'block';
+              console.log("Panel mostrado");
           } else {
-              alert('Debes iniciar sesión para reservar.');
+              manejarAvisoEstadoLogeo();
           }
-      });
-    });
+      }
+  });
     // Cerrar el panel flotante
-    document.getElementById('cerrarPanel').addEventListener('click', function() {
+    document.getElementById('cerrarPanelReserva').addEventListener('click', function() {
       document.getElementById('reservaPanel').style.display = 'none';
-    });
+  });
+  
 
   }
 }
 
 document.getElementById('btnUsuario').addEventListener('click', function() {
-  // Simula el login guardando el estado en localStorage
   if (usuarioLogueado()) {
-    abrirPanelUsuario();
+    controlarPanelUsuario();
   } else {
-    // luego cambiar por redirect a pagina de login etc.
     localStorage.setItem('usuarioLogueado', 'true');
-    alert('Te has logueado exitosamente');
+    localStorage.setItem('nombreUsuario', 'juan perez');
+    window.location.href = 'http://localhost/web-de-reserva-de-canchas/login/login.html'; // !!! cambiar por dominio
   }
-  actualizarEstadoBoton(); // Actualiza el botón al estado de logueado
 });
 
-// Función para verificar si el usuario está logueado
 function usuarioLogueado() {
   return localStorage.getItem('usuarioLogueado') === 'true';
 }
 
-// Función para actualizar el botón de ingresar
-function actualizarEstadoBoton() {
+document.addEventListener('DOMContentLoaded', function() {actualizarBotonUsuario();});
+function actualizarBotonUsuario() {
   const botonUsuario = document.getElementById('btnUsuario');
   if (usuarioLogueado()) {
-    const nombreUsuario = localStorage.getItem('nombreUsuario');
-    botonUsuario.textContent = `(${nombreUsuario})`;
+    botonUsuario.textContent = 'Ver Perfil';
   } else {
     botonUsuario.textContent = 'Ingresar';
   }
 }
 
-// Evento para cerrar sesión
-document.getElementById('btnCerrarSesion').addEventListener('click', function() {
-  if (usuarioLogueado()) {
-      localStorage.removeItem('usuarioLogueado');
-      alert('Has cerrado sesión.');
-      actualizarEstadoBoton();
+function controlarPanelUsuario(){
+  const panelUsuario = document.getElementById('panelUsuario');
+  if (panelUsuario.style.display === 'none'){
+    panelUsuario.style.display = 'block';
+    const nombreUsuario = document.getElementById('nombreUsuario');
+    nombreUsuario.textContent = `${localStorage.getItem('nombreUsuario')}`;
+  } else {
+    panelUsuario.style.display = 'none';
   }
+}
+document.getElementById('cerrarSesion').addEventListener('click', function() {
+  localStorage.removeItem('usuarioLogueado');
+  localStorage.removeItem('nombreUsuario');
+  location.reload();
 });
 
-// Llamar la función al cargar la página
-document.addEventListener('DOMContentLoaded', actualizarEstadoBoton);
+function manejarAvisoEstadoLogeo(){
+  const avisoEstadoLogeo = document.getElementById('avisoEstadoLogeo');
+  avisoEstadoLogeo.style.display = 'flex';
+  document.getElementById('cerrarAvisoLogeo').addEventListener('click', function() {
+    avisoEstadoLogeo.style.display = 'none';
+  });
+}
 
 
 function obtenerProximosSieteDias() {

@@ -8,14 +8,22 @@
 </head>
 <body>
     <header>
-        <div>
-            <h1 id="titulo">Ezeiza Paintball</h1>
+        <div id="titulo">
+            <h1 id="tituloEmpresa">Ezeiza Paintball</h1>
             <h1 id="tituloSubpagina">Reservas</h1>
         </div>
-        <button id="btnUsuario">Ingresar</button>
-        <div id="panelUsuario"></div>
+        <div id="opcionesUsuario">
+            <button id="btnUsuario"></button>
+            <div id="panelUsuario" style="display: none;">
+                <h3 id="nombreUsuario"></h2>
+                <p>Reservas hechas</p>
+                <div id="reservasHechas"></div>
+                <button id="cerrarSesion">Cerrar sesión</button>
+            </div>
+        </div>
     </header>
     <main>
+        <div id="avisoEstadoLogeo" style="display: none;"><p>Debe iniciar sesión para reservar</p> <button id="cerrarAvisoLogeo">cerrar</button></div>
         <label for="selectCancha">Elija una cancha para reservar:</label>
         <select name="seleccionarNumeroCancha" id="selectCancha">
             <option value=0>Ninguna cancha seleccionada</option>
@@ -27,15 +35,17 @@
             <option value=6>Cancha Amateur 6</option>
             <option value=7>Cancha Profesional</option>
         </select>
+        
         <div id="listasReservasDiarias"></div>
+
         <div id="reservaPanel" style="display: none;">
-            <div id="reservaDetalles"></div>
-            <button id="cerrarPanel">Cerrar</button>
+            <div id="headerPanelReserva">
+                <h1>Reservar</h1>
+                <button id="cerrarPanelReserva">X</button>
+            </div>
+            
         </div>
     </main>
-    <footer>
-       
-    </footer>
     <script src="reservas.js"></script>
 </body>
 </html>
