@@ -22,19 +22,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--padding-general) 3rem; /* Uso de rem para mayor consistencia */
+    padding: var(--padding-general) 3rem;
 }
 
-header div {
+header #titulo {
     display: flex;
-    gap: 1rem; /* Gap con unidades relativas */
+    gap: 0.5rem;
 }
 
-header div #tituloSubpagina {
+header #titulo #tituloSubpagina {
     font-weight: 300;
 }
 
-header button {
+#btnUsuario {
     background-color: var(--color-boton);
     color: var(--color-texto);
     padding: var(--padding-general);
@@ -42,6 +42,44 @@ header button {
     border-radius: var(--border-radius-general);
     cursor: pointer;
 }
+
+#panelUsuario {
+    position: absolute;
+    background-color: var(--color-boton);
+    color: var(--color-texto);
+    padding: var(--padding-general);
+    border-radius: 1rem;
+    display: none;
+  }
+  
+#cerrarSesion {
+    font-weight: 800;
+    background-color: red;
+    color: var(--color-texto);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+#cerrarSesion:hover {
+    background-color: darkred;
+}
+
+#avisoEstadoLogeo {
+    background-color: red;
+    color: var(--color-texto);
+    font-weight: 400;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+#avisoEstadoLogeo button {
+    font-weight: 700;
+    margin-left: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
 
 main {
     margin: 3rem;
@@ -105,10 +143,6 @@ main label {
 }
 
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: var(--padding-general);
-    }
 
     main {
         margin: 1rem;
