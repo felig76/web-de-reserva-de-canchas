@@ -93,8 +93,6 @@ document.getElementById('btnUsuario').addEventListener('click', function() {
   if (usuarioLogueado()) {
     controlarPanelUsuario();
   } else {
-    localStorage.setItem('usuarioLogueado', 'true');
-    localStorage.setItem('nombreUsuario', 'juan perez');
     window.location.href = 'http://localhost/web-de-reserva-de-canchas/login/login.html'; // !!! cambiar por dominio
   }
 });
