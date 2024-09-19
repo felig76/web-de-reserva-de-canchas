@@ -41,7 +41,7 @@ input {
     border-radius: 5px;
 }
 
-button {
+.botonIniciar {
     width: 80%;
     padding: 10px;
     background-color: #28a745;
@@ -52,9 +52,11 @@ button {
     margin: 1rem;
 }
 
-button:hover {
+.botonIniciar:hover {
     background-color: #218838;
 }
+
+.
 
 #login-message {
     
