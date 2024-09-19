@@ -24,12 +24,10 @@
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" required>
             
-                    <button type="submit">Iniciar Sesión</button>
+                    <button class="botonIniciar" type="submit">Iniciar Sesión</button>
                 </form>
                 <p id="login-message" data-resultado=""></p>
-            
-                <!-- Botón para registrarse -->
-                <button id="botonRegistro">¿No tienes una cuenta? REGÍSTRATE AHORA</button>
+                <button class="botonAlternar" id="botonRegistro">¿No tienes una cuenta? Regístrate ahora</button>
             </div>
             <div class="register-container" style="display:none;">
                 <h1 id="titulo-registrar">Registrar Nueva Cuenta</h1>
@@ -40,12 +38,13 @@
                     <label for="newPassword">Nueva Contraseña</label>
                     <input type="password" id="newPassword" name="newPassword" required>
 
-                    <button type="submit">Registrar Cuenta</button>
+                    <button class="botonIniciar" type="submit">Registrar Cuenta</button>
                 </form>
                 <p id="register-message"></p>
+                <button class="botonAlternar" id="botonLogin">¿Ya tienes una cuenta? Inicia sesión</button>
             </div>
         </div>
-        <p id="avisoLogueado">Ya estás registrado. Reserva <a href="./reservas\reservas.html">aquí</a>.</p>
+        <p id="avisoLogueado">Ya estás registrado. Reserva <a href="http://localhost/web-de-reserva-de-canchas/reservas/reservas.html">aquí</a>.</p>
     </main>
     <script src="login.js"></script>
 </body>
