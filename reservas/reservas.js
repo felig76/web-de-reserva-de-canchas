@@ -73,10 +73,9 @@ function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
       if (event.target.classList.contains('reserva-item')) {
           console.log('Tarjeta de reserva clicada:', event.target); // Verifica el elemento clicado
           if (usuarioLogueado()) {
-              document.getElementById('reservaPanel').style.display = 'block';
-              console.log("Panel mostrado");
+            mostrarPanelReserva();
           } else {
-              manejarAvisoEstadoLogeo();
+            manejarAvisoEstadoLogeo();
           }
       }
   });
@@ -120,6 +119,7 @@ function controlarPanelUsuario(){
   } else {
     panelUsuario.style.display = 'none';
   }
+  //mostrar reservas del usuario
 }
 document.getElementById('cerrarSesion').addEventListener('click', function() {
   localStorage.removeItem('usuarioLogueado');
@@ -133,6 +133,13 @@ function manejarAvisoEstadoLogeo(){
   document.getElementById('cerrarAvisoLogeo').addEventListener('click', function() {
     avisoEstadoLogeo.style.display = 'none';
   });
+}
+
+
+function mostrarPanelReserva(){
+  const reservaPanel = document.getElementById('reservaPanel');
+  reservaPanel.style.display = 'block';
+  //seguir codigo de hacer reserva
 }
 
 
