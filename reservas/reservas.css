@@ -27,7 +27,7 @@ header {
 
 header #titulo {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 header #titulo #tituloSubpagina {
@@ -72,16 +72,24 @@ header #titulo #tituloSubpagina {
 }
 
 #avisoEstadoLogeo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
     background-color: red;
     color: var(--color-texto);
-    font-weight: 400;
-    padding: 0.5rem;
+    font-weight: 600;
+    padding: 0.3rem;
+    margin: 1rem;
     border-radius: var(--border-radius-general);
 }
 #avisoEstadoLogeo button {
     font-weight: 700;
+    text-decoration: underline;
     margin-left: 1rem;
+    color: var(--color-texto);
     background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
     border: none;
 }
 
@@ -180,7 +188,6 @@ main label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
 
