@@ -23,7 +23,9 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 
             if (userFound) {
                 // Usuario y contraseña correctos
-                message.textContent = 'sesion iniciada correctamente';
+                localStorage.setItem('usuarioLogueado', 'true');
+                localStorage.setItem('nombreUsuario', username);
+                message.textContent = 'Sesión iniciada correctamente';
                 message.style.backgroundColor = "green";
                 window.location.href = 'http://ezeizapaintball.infinityfreeapp.com';
             } else {
@@ -39,6 +41,11 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 document.getElementById('botonRegistro').addEventListener('click', function () {
     document.querySelector('.register-container').style.display = 'block'; // Mostrar el contenedor de registro
     document.querySelector('.login-container').style.display = 'none'; // Ocultar el panel de login
+});
+
+document.getElementById('botonLogin').addEventListener('click', function () {
+    document.querySelector('.register-container').style.display = 'none'; // Mostrar el contenedor de registro
+    document.querySelector('.login-container').style.display = 'block'; // Ocultar el panel de login
 });
 
 // Manejar el envío del formulario de registro
@@ -60,8 +67,11 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
     .then(data => {
         const message = document.getElementById('register-message');
         if (data.success) {
+            localStorage.setItem('usuarioLogueado', 'true');
+            localStorage.setItem('nombreUsuario', newUsername);
             message.textContent = 'Cuenta registrada con éxito';
             message.style.backgroundColor = "green";
+            window.location.href = 'http://ezeizapaintball.infinityfreeapp.com';
         } else {
             message.textContent = 'Error al registrar la cuenta';
             message.style.backgroundColor = "red";
@@ -86,5 +96,3 @@ function comprobarLogueo(){
         avisoLogueado.style.display = "none";
     }
 }
-
-
