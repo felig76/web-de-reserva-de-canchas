@@ -69,11 +69,9 @@ function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
 
     // Agregar listener para todas las tarjetas de reserva creadas
     document.getElementById('listasReservasDiarias').addEventListener('click', function(event) {
-      console.log('Elemento clicado:', event.target); // Verifica el elemento clicado
       if (event.target.classList.contains('reserva-item')) {
-          console.log('Tarjeta de reserva clicada:', event.target); // Verifica el elemento clicado
           if (usuarioLogueado()) {
-            mostrarPanelReserva();
+            mostrarPanelReserva(event.target);
           } else {
             manejarAvisoEstadoLogeo();
           }
@@ -88,6 +86,10 @@ function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
   }
 }
 
+function usuarioLogueado() {
+  return localStorage.getItem('usuarioLogueado') === 'true';
+}
+
 document.getElementById('btnUsuario').addEventListener('click', function() {
   if (usuarioLogueado()) {
     controlarPanelUsuario();
@@ -95,20 +97,6 @@ document.getElementById('btnUsuario').addEventListener('click', function() {
     window.location.href = 'http://localhost/web-de-reserva-de-canchas/login/login.html'; // !!! cambiar por dominio
   }
 });
-
-function usuarioLogueado() {
-  return localStorage.getItem('usuarioLogueado') === 'true';
-}
-
-document.addEventListener('DOMContentLoaded', function() {actualizarBotonUsuario();});
-function actualizarBotonUsuario() {
-  const botonUsuario = document.getElementById('btnUsuario');
-  if (usuarioLogueado()) {
-    botonUsuario.textContent = 'Ver Perfil';
-  } else {
-    botonUsuario.textContent = 'Ingresar';
-  }
-}
 
 function controlarPanelUsuario(){
   const panelUsuario = document.getElementById('panelUsuario');
@@ -135,11 +123,38 @@ function manejarAvisoEstadoLogeo(){
   });
 }
 
-
-function mostrarPanelReserva(){
+function mostrarPanelReserva(tarjetaReserva) {
   const reservaPanel = document.getElementById('reservaPanel');
   reservaPanel.style.display = 'block';
-  //seguir codigo de hacer reserva
+
+  const diaReserva = tarjetaReserva.getAttribute('data-dia');
+  const horaReserva = tarjetaReserva.getAttribute('data-horario');
+  const canchaReserva = tarjetaReserva.getAttribute('data-cancha');
+
+  document.getElementById('diaReserva').textContent = formatearFecha(diaReserva); // Muestra la fecha formateada
+  document.getElementById('horaReserva').textContent = horaReserva;
+  const textoCancha = (canchaReserva > 6) ? "Cancha Profesional" : `Cancha Amateur ${canchaReserva}`;
+  document.getElementById('canchaReserva').textContent = textoCancha;
+
+  document.getElementById('confirmarReserva').addEventListener('click', function() {
+    hacerReserva(diaReserva, horaReserva, canchaReserva);
+  });
+}
+
+function hacerReserva(diaReserva, horaReserva, canchaReserva){
+  console.log("hacer una reserva para los siguientes parámetros: " + diaReserva + horaReserva + canchaReserva);
+  // CAMBiAR FORMATEO DE FECHA PARA QUE SEA SOLO CUANDO SE MUESTRA
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {actualizarBotonUsuario();});
+function actualizarBotonUsuario() {
+  const botonUsuario = document.getElementById('btnUsuario');
+  if (usuarioLogueado()) {
+    botonUsuario.textContent = 'Ver Perfil';
+  } else {
+    botonUsuario.textContent = 'Ingresar';
+  }
 }
 
 
@@ -147,7 +162,7 @@ function obtenerProximosSieteDias() {
   const days = [];
   const today = new Date();
   
-  for (let i = 0; i < 7; i++) {
+  for (let i = 1; i < 8; i++) {
     let day = new Date(today);
     day.setDate(today.getDate() + i);
     const year = day.getFullYear(); // Obtener el año, mes y día
