@@ -39,13 +39,13 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 
 // Mostrar el formulario de registro al hacer clic en el botón de registro
 document.getElementById('botonRegistro').addEventListener('click', function () {
-    document.querySelector('.register-container').style.display = 'block'; // Mostrar el contenedor de registro
-    document.querySelector('.login-container').style.display = 'none'; // Ocultar el panel de login
+    document.getElementById('register-container').style.display = 'block'; // Mostrar el contenedor de registro
+    document.getElementById('login-container').style.display = 'none'; // Ocultar el panel de login
 });
 
 document.getElementById('botonLogin').addEventListener('click', function () {
-    document.querySelector('.register-container').style.display = 'none'; // Mostrar el contenedor de registro
-    document.querySelector('.login-container').style.display = 'block'; // Ocultar el panel de login
+    document.getElementById('register-container').style.display = 'none'; // Mostrar el contenedor de registro
+    document.getElementById('login-container').style.display = 'block'; // Ocultar el panel de login
 });
 
 // Manejar el envío del formulario de registro
@@ -72,7 +72,8 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
             message.textContent = 'Cuenta registrada con éxito';
             message.style.backgroundColor = "green";
             window.location.href = 'http://ezeizapaintball.infinityfreeapp.com';
-        } else {
+        }
+        else{
             message.textContent = 'Error al registrar la cuenta';
             message.style.backgroundColor = "red";
         }
