@@ -1,99 +1,96 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(27, 27, 27);
-    color: rgb(235, 235, 235);
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 600;
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(27, 27, 27);
+        color: rgb(235, 235, 235);
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 600;
+    }
 
-}
+    .loginRegisterContainer {
+        margin: 0 auto;
+        background-color: rgb(0, 0, 0);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 20rem;
+    }
 
-.login-container {
-    background-color: rgb(0, 0, 0);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-top: 5rem;
-    width: 20rem;
-}
+    #mensaje-error {
+        color: red;
+    }
+    h1 {   
+        margin-bottom: 20px;
+        color: rgb(235, 235, 235);
+    }
 
-h1 {
-    margin-bottom: 20px;
-    color: rgb(235, 235, 235);
-}
+    .titulos{
+        margin: 2rem;
+        color: white;
+    }
 
-#titulo-ingresar{
-    margin: 1em;
-    color: white;
-}
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #ffffff;
-}
+    input {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-input {
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    .botonIniciar {
+        width: 80%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 1.5rem;
+    }
 
-.botonIniciar {
-    width: 80%;
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 1rem;
-}
+    .botonIniciar:hover {
+        background-color: #218838;
+    }
 
-.botonIniciar:hover {
-    background-color: #218838;
-}
+    .botonAlternar{
+        background-color: transparent; /* Eliminar el fondo blanco */
+        border: none; /* Eliminar el borde, si es necesario */
+        cursor: pointer; /* Cambiar el cursor al puntero cuando esté sobre el botón */
+        color: #ffffff; /* Color del texto, puedes cambiarlo según sea necesario */
+        }
+        
+    .botonAlternar:hover {
+        text-decoration: underline;
+        }
 
-.
 
-#login-message {
-    
-    color: rgb(255, 255, 255);
-    padding: 1em;
-}
+    #login-message {
+        
+        color: rgb(255, 255, 255);
+        padding: 1em;
+    }
 
-header {
-    display: flex;
-    justify-content: space-between; /* Distribuye el contenido */
-    align-items: center;
-    padding: 1em 3em 1em 3em;
-}
-header div {
-    display: flex;
-    gap: 1em;
-}
-header div #tituloSubpagina{
-    font-weight: 300;
-}
+    header {
+        display: flex;
+        justify-content: space-between; /* Distribuye el contenido */
+        align-items: center;
+        padding: 1em 3em 1em 3em;
+    }
+    header div {
+        display: flex;
+        gap: 1em;
+    }
+    header div #tituloSubpagina{
+        font-weight: 300;
+    }
 
-.register-container {
-    background-color: rgb(0, 0, 0);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-top: 2rem;
-    width: 20rem;
-}
-
-#titulo-registrar {
-    color: white;
-    margin-bottom: 20px;
-}
-
-#register-message {
-    color: white;
-    padding: 1em;
-}
+    #register-message {
+        color: white;
+        padding: 1em;
+    }
