@@ -7,17 +7,12 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     // Realizar la solicitud con fetch al PHP
     fetch('login.php')
         .then(response => response.json())
-        .then(data => {
-            let userFound = false;
-            // Usar .forEach() para iterar sobre los usuarios y printarlos en la consola
-            data.forEach(user => {
-                console.log(`Comprobando usuario: ${user.nombre}`);
-                
-                // Verificar si el usuario y la contraseña coinciden
-                if (user.nombre === username && user.contrasenia === password) {
-                    userFound = true;
-                }
-            });
+        .then(data => {            
+
+            var userFound = data.find(user => 
+                user.nombre === username && 
+                user.contrasenia === password
+            );
 
             const message = document.getElementById('login-message');
 
@@ -25,9 +20,9 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
                 // Usuario y contraseña correctos
                 localStorage.setItem('usuarioLogueado', 'true');
                 localStorage.setItem('nombreUsuario', username);
+                localStorage.setItem('idUsuario', userFound.id);
                 message.textContent = 'Sesión iniciada correctamente';
                 message.style.backgroundColor = "green";
-                window.location.href = 'http://ezeizapaintball.infinityfreeapp.com';
             } else {
                 // Usuario o contraseña incorrectos
                 message.textContent = 'Usuario o contraseña incorrectos';
@@ -69,9 +64,27 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
         if (data.success) {
             localStorage.setItem('usuarioLogueado', 'true');
             localStorage.setItem('nombreUsuario', newUsername);
+            fetch('obtenerIdUsuario.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: JSON.stringify({ usuario: newUsername })
+            })
+            .then(response => response.json())
+            .then(data => {
+            if (data.idUsuario) {
+                localStorage.setItem('idUsuario', data.idUsuario);
+            } else {
+                console.error('No se pudo obtener el ID del usuario.');
+            }
+            })
+            .catch(error => {
+            console.error('Error al obtener el ID del usuario:', error);
+            });
+
             message.textContent = 'Cuenta registrada con éxito';
             message.style.backgroundColor = "green";
-            window.location.href = 'http://ezeizapaintball.infinityfreeapp.com';
         }
         else{
             message.textContent = 'Error al registrar la cuenta';
