@@ -14,7 +14,9 @@
         </div>
     </header>
     <main>
+        
         <div id="panelLoginRegister">
+
             <div class="loginRegisterContainer" id="login-container">
                 <h1 class="titulos" id="titulo-ingresar">Iniciar Sesión</h1>
                 <form id="loginForm" method="POST">
@@ -26,10 +28,10 @@
             
                     <button class="botonIniciar" type="submit">Iniciar Sesión</button>
                 </form>
-                <p id="login-message" data-resultado=""></p>
-                <p>‎ </p>
+                <p id="login-message" data-resultado="">‎</p>
                 <button class="botonAlternar" id="botonRegistro">¿No tienes una cuenta? Regístrate ahora</button>
             </div>
+
             <div class="loginRegisterContainer" id="register-container" style="display:none;">
                 <h1 class="titulos" id="titulo-registrar">Registrarse</h1>
                 <form id="registerForm">
@@ -41,13 +43,15 @@
 
                     <button class="botonIniciar" type="submit">Registrar Cuenta</button>
                 </form>
-                <p id="register-message"></p>
                 <p id="mensaje-error">Este nombre de usuario ya existe</p>
                 <button class="botonAlternar" id="botonLogin">¿Ya tienes una cuenta? Inicia sesión</button>
             </div>
+
         </div>
+
         <p id="avisoLogueado">Ya estás registrado. Reserva <a href="http://localhost/web-de-reserva-de-canchas/reservas/reservas.html">aquí</a>.</p>
     </main>
+
     <script src="login.js"></script>
 </body>
 </html>

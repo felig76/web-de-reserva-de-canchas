@@ -19,7 +19,17 @@
 
     #mensaje-error {
         color: red;
+        opacity: 0; /* Iniciar oculto */
+        visibility: hidden; /* Para quitar el espacio cuando esté oculto */
+        padding: 1em;
+        margin: 0;
     }
+    
+    #mensaje-error.visible {
+        opacity: 1; /* Mostrar el mensaje */
+        visibility: visible; /* Visibilidad */
+    }
+    
     h1 {   
         margin-bottom: 20px;
         color: rgb(235, 235, 235);
@@ -71,9 +81,8 @@
 
 
     #login-message {
-        
         color: rgb(255, 255, 255);
-        padding: 1em;
+        margin: 1em;
     }
 
     header {
@@ -93,4 +102,6 @@
     #register-message {
         color: white;
         padding: 1em;
+        margin: 0;
+        visibility: visible;
     }
