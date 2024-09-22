@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reservas.css">
+    <title>RESERVAS | Ezeiza Paintball</title>
+</head>
+<body>
+    <header>
+        <div id="titulo">
+            <h1 id="tituloEmpresa">Ezeiza Paintball</h1>
+            <h1 id="tituloSubpagina">Reservas</h1>
+        </div>
+        <div id="opcionesUsuario">
+            <button id="btnUsuario"></button>
+            <div id="panelUsuario" style="display: none;">
+                <h3 id="nombreUsuario"></h3>
+                <p>Reservas hechas</p>
+                <div id="reservasHechas"></div>
+                <button id="cerrarSesion">Cerrar sesión</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="avisoEstadoLogeo" style="display: none;"><p>Debe iniciar sesión para reservar</p> <button id="cerrarAvisoLogeo">cerrar</button></div>
+        <label for="selectCancha">Elija una cancha para reservar:</label>
+        <select name="seleccionarNumeroCancha" id="selectCancha">
+            <option value=0>Ninguna cancha seleccionada</option>
+            <option value=1>Cancha Amateur 1</option>
+            <option value=2>Cancha Amateur 2</option>
+            <option value=3>Cancha Amateur 3</option>
+            <option value=4>Cancha Amateur 4</option>
+            <option value=5>Cancha Amateur 5</option>
+            <option value=6>Cancha Amateur 6</option>
+            <option value=7>Cancha Profesional</option>
+        </select>
+        
+        <div id="listasReservasDiarias"></div>
+
+        <div id="reservaPanel" style="display: none;">
+            <div id="headerPanelReserva">
+                <h1>Reservar</h1>
+                <button id="cerrarPanelReserva">X</button>
+            </div>
+            <h3>Día:</h3>
+            <p id="diaReserva"></p>
+            <h3>Hora:</h3>
+            <p id="horaReserva"></p>
+            <h3>Cancha:</h3>
+            <p id="canchaReserva"></p>
+            <div id="contenedorConfirmarReserva">
+                <button id="confirmarReserva">Reservar</button>
+            </div>
+        </div>
+    </main>
+    <script src="reservas.js"></script>
+</body>
+</html>
