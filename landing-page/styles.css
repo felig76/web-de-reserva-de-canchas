@@ -1,5 +1,5 @@
 *{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 html{
@@ -7,7 +7,12 @@ html{
     overflow: hidden;
 }
 
+a {
+    color: rgb(245, 247, 248);
+}
+
 body {
+    color: rgb(245, 247, 248);
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -36,33 +41,26 @@ body {
 }
 
 .infopa{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.5vw;
-    color: white;
-    margin-top: 5px;
+    font-weight: 400;
+    margin-top: 1rem;
 }
 
-.seccion2{
-    background:rgb(35, 37, 61 );
-}
 .text{
-    top: 60%;
+    top: 50%;
     left: 50%;
     position: absolute;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 500;
-    font-size: 13vw;
+    font-size: 11vw;
     text-align: center;
-    color:white;
     text-shadow: 2px 2px 2px 5px rgba(0,0,0,0.3),
     5px 5px 70px rgba(255,255,255,0.5);
     transform: translateY(-50%) translate(-50%, -10%);
 
 }
 
-/* Sección 2 */
 .seccion2 {
-    background: rgb(35, 37, 61);
+    background: rgb(20, 25, 32);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,31 +68,29 @@ body {
     text-align: center;
 }
 
-
 .text-moderado {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 4vw;
-    color: white;
+    font-weight: 600;
     margin-bottom: 20px;
 }
 
 .tarjeta-boton {
-    background-color: rgb(52, 38, 88);
-    color: rgb(235, 235, 235);
+    background-color: rgb(255, 147, 24);
+    font-weight: 600;
     text-decoration: none;
     padding: 1em 6em;
+    margin: 2rem;
     border: none;
     border-radius: 1em;
     cursor: pointer;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.5vw;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 1.5s, background-color 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .tarjeta-boton:hover {
     transform: scale(1.05);
-    background-color: rgb(88, 68, 138);
+    background-color: rgb(255, 102, 0);
 }
 
 /* Ajuste de imágenes en la sección 2 */
@@ -107,7 +103,7 @@ body {
 
 .imagen-contenedor {
     position: relative;
-    transition: transform 1s;
+    transition: transform 0.3s;
     width: 45%; /* Ajuste del tamaño al 45% del contenedor principal */
     max-width: 300px; /* Máximo tamaño para evitar que se agranden mucho en pantallas grandes */
 }
@@ -126,11 +122,11 @@ body {
 
 .imagen-descripcion {
     position: absolute;
+    font-weight: 400;   
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.7);
-    color: white;
     text-align: center;
     padding: 10px;
     opacity: 0;
@@ -142,9 +138,8 @@ body {
     opacity: 1;
 }
 
-/* Sección 3 */
 .seccion3 {
-    background-color: rgb(31, 48, 38);
+    background-color: rgb(17, 16, 24);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -153,27 +148,23 @@ body {
 }
 
 .seccion3 .tarjeta-boton{
-    background-color: rgb(55, 100, 74);
+    background-color: rgb(255, 147, 24);
 }
 .seccion3 .tarjeta-boton:hover{
-    background-color: rgb(107, 173, 135);
+    background-color: rgb(255, 102, 0);
 }
 .sub-text {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.5vw;
-    color: white;
     margin-top: 20px;
 }
 
 .boton-pequeno {
     background-color: rgb(14, 14, 14);
-    color: rgb(235, 235, 235);
     text-decoration: none;
     padding: 0.5em 1em;
     border: none;
     border-radius: 0.5em;
     cursor: pointer;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1vw;
     margin-top: 10px;
     transition: transform 0.3s, background-color 0.3s;
@@ -197,6 +188,7 @@ body {
 
 .direccion {
     width: 30%;
+    text-decoration: none;
 }
 
 .contacto-y-botones {
@@ -209,9 +201,7 @@ body {
 
 .testo {
     font-weight:100;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
-    color: white;
     margin-right: 8px;
 }
 
@@ -222,16 +212,10 @@ body {
 }
 /* Estilos generales de los botones sociales */
 .social-btn {
-    color: white;
     font-size: 1.6em;
     text-decoration: none;
     transition: color 0.3s, transform 0.3s;
     margin: 5px;
-}
-
-.social-btn i:hover {
-    transition: transform 0.5s ease;
-    transform: scale(1.6);
 }
 
 .social-btn.twitter:hover {
