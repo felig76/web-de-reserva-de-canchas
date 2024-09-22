@@ -26,12 +26,13 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
                 localStorage.setItem('idUsuario', userFound.id);
                 message.textContent = 'Sesión iniciada correctamente';
                 message.style.backgroundColor = "green";
+                window.location.href = 'http://localhost/web-de-reserva-de-canchas/reservas/reservas.html';
+                
             } else {
                 // Usuario o contraseña incorrectos
                 message.style.visibility = 'visible'
                 message.textContent = 'Usuario o contraseña incorrectos';
                 message.style.color = "red";
-
 
                 // Limpiar cualquier temporizador previo
                 if (loginTimeoutId) {
@@ -94,6 +95,8 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
             .then(data => {
             if (data.idUsuario) {
                 localStorage.setItem('idUsuario', data.idUsuario);
+                console.log(localStorage.getItem('idUsuario'));
+                
             } else {
                 console.error('No se pudo obtener el ID del usuario.');
             }
@@ -101,8 +104,8 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
             .catch(error => {
             console.error('Error al obtener el ID del usuario:', error);
             });
-
-            errorMessage.classList.remove('visible'); // Ocultar mensaje de error si hay éxito
+            errorMessage.classList.remove('visible');
+            window.location.href = 'http://localhost/web-de-reserva-de-canchas/reservas/reservas.html';
         } else if (data.error === 'username_exists') {
             // Mostrar el mensaje de error si el nombre de usuario ya existe
             errorMessage.classList.add('visible');
