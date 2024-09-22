@@ -12,7 +12,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
     }
 
     // Consulta para seleccionar todos los usuarios y contraseñas
-    $sql = "SELECT nombre, contrasenia FROM Usuarios";
+    $sql = "SELECT id, nombre, contrasenia FROM Usuarios";
     $result = $conn->query($sql);
 
     $usuarios = array();
