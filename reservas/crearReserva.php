@@ -3,20 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
-// Configuración para base de datos local con XAMPP
-$servername = "localhost";
-$username = "root";
-$password = ""; // XAMPP no tiene contraseña para MySQL por defecto
-$dbname = "reservas_paintball";
-// Configuración para base de datos hosteada
-/*
-$servername = "sql111.infinityfree.com";
-$username = "if0_37225004";
-$password = "6dQGvZ15Uh ";
-$dbname = "if0_37225004_ReservasEzeizaPaintball";
-*/
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "", reservas_paintball);
 
 // Verificar la conexión
 if ($conn->connect_error) {

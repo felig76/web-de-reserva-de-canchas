@@ -1,12 +1,6 @@
 <?php
-// Configuración de la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "reservas_paintball";
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "", reservas_paintball);
 
 // Verificar conexión
 if ($conn->connect_error) {

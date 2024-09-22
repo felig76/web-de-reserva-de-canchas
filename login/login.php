@@ -1,9 +1,6 @@
 <?php
-// Configuración de la base de datos
-$servername = "localhost";
-$username = "root";
-$password = ""; // XAMPP no tiene contraseña para MySQL por defecto
-$dbname = "reservas_paintball";
+
+$conn = new mysqli("localhost", "root", "", reservas_paintball);
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
