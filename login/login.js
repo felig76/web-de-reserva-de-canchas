@@ -1,3 +1,6 @@
+// Variable para guardar el temporizador para el mensaje de error de login
+let loginTimeoutId;
+
 document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Evitar la recarga de página
 
@@ -9,7 +12,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
         .then(response => response.json())
         .then(data => {
             let userFound = false;
-            // Usar .forEach() para iterar sobre los usuarios y printarlos en la consola
+            // Usar .forEach() para iterar sobre los usuarios
             data.forEach(user => {
                 console.log(`Comprobando usuario: ${user.nombre}`);
                 
@@ -30,11 +33,23 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
                 window.location.href = 'http://ezeizapaintball.infinityfreeapp.com';
             } else {
                 // Usuario o contraseña incorrectos
+                message.style.visibility = 'visible'
                 message.textContent = 'Usuario o contraseña incorrectos';
-                message.style.backgroundColor = "red";
+                message.style.color = "red";
+
+
+                // Limpiar cualquier temporizador previo
+                if (loginTimeoutId) {
+                    clearTimeout(loginTimeoutId);
+                }
+
+                // Temporizador para ocultar el mensaje después de 1 segundo
+                loginTimeoutId = setTimeout(function () {
+                    message.style.visibility = 'hidden'; // Limpiar el mensaje
+                }, 1000); // 1000 milisegundos = 1 segundo
             }
-            })
-            .catch(error => console.error('Error:', error));
+        })
+        .catch(error => console.error('Error:', error));
 });
 
 // Mostrar el formulario de registro al hacer clic en el botón de registro
@@ -47,6 +62,9 @@ document.getElementById('botonLogin').addEventListener('click', function () {
     document.getElementById('register-container').style.display = 'none'; // Mostrar el contenedor de registro
     document.getElementById('login-container').style.display = 'block'; // Ocultar el panel de login
 });
+
+// Variable para guardar el temporizador
+let timeoutId;
 
 // Manejar el envío del formulario de registro
 document.getElementById('registerForm').addEventListener('submit', function (e) {
@@ -65,21 +83,32 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
     })
     .then(response => response.json())
     .then(data => {
-        const message = document.getElementById('register-message');
+        const errorMessage = document.getElementById('mensaje-error');
+
         if (data.success) {
             localStorage.setItem('usuarioLogueado', 'true');
             localStorage.setItem('nombreUsuario', newUsername);
-            message.textContent = 'Cuenta registrada con éxito';
-            message.style.backgroundColor = "green";
             window.location.href = 'http://ezeizapaintball.infinityfreeapp.com';
-        }
-        else{
-            message.textContent = 'Error al registrar la cuenta';
-            message.style.backgroundColor = "red";
+            errorMessage.classList.remove('visible'); // Ocultar mensaje de error si hay éxito
+        } else if (data.error === 'username_exists') {
+            // Mostrar el mensaje de error si el nombre de usuario ya existe
+            errorMessage.classList.add('visible');
+            // Si ya había un temporizador corriendo, cancelarlo
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+
+            // Establecer un nuevo temporizador que oculta el mensaje 1 segundo después del último clic
+            timeoutId = setTimeout(function () {
+                errorMessage.classList.remove('visible'); // Aplicar fade out al mensaje
+            }, 1000); // 1000 milisegundos = 1 segundo
+        } else {
+            errorMessage.classList.remove('visible');
         }
     })
     .catch(error => console.error('Error:', error));
 });
+
 
 
 document.addEventListener('DOMContentLoaded', comprobarLogueo);
