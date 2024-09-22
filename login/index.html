@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>INGRESAR | Ezeiza Paintball</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1 id="titulo">Ezeiza Paintball</h1>
+            <h1 id="tituloSubpagina">Ingresar</h1>
+        </div>
+    </header>
+    <main>
+        
+        <div id="panelLoginRegister">
+
+            <div class="loginRegisterContainer" id="login-container">
+                <h1 class="titulos" id="titulo-ingresar">Iniciar Sesión</h1>
+                <form id="loginForm" method="POST">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" required>
+            
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+            
+                    <button class="botonIniciar" type="submit">Iniciar Sesión</button>
+                </form>
+                <p id="login-message" data-resultado="">‎</p>
+                <button class="botonAlternar" id="botonRegistro">¿No tienes una cuenta? Regístrate ahora</button>
+            </div>
+
+            <div class="loginRegisterContainer" id="register-container" style="display:none;">
+                <h1 class="titulos" id="titulo-registrar">Registrarse</h1>
+                <form id="registerForm">
+                    <label for="newUsername">Nuevo Usuario</label>
+                    <input type="text" id="newUsername" name="newUsername" required>
+
+                    <label for="newPassword">Nueva Contraseña</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+
+                    <button class="botonIniciar" type="submit">Registrar Cuenta</button>
+                </form>
+                <p id="mensaje-error">Este nombre de usuario ya existe</p>
+                <button class="botonAlternar" id="botonLogin">¿Ya tienes una cuenta? Inicia sesión</button>
+            </div>
+
+        </div>
+
+        <p id="avisoLogueado">Ya estás registrado. Reserva <a href="http://localhost/web-de-reserva-de-canchas/reservas/reservas.html">aquí</a>.</p>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>
