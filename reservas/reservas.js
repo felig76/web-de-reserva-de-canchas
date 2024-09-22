@@ -53,6 +53,7 @@ function mostrarOpcionesReservas(numeroCancha, nombreCancha) {
               nuevaTarjetaReserva.setAttribute('data-estado', "reservado");
               nuevaTarjetaReserva.textContent += ' - Reservado';
             }
+            nuevaTarjetaReserva.disabled = true;
           } else {
             nuevaTarjetaReserva.setAttribute('data-estado', "disponible");
             nuevaTarjetaReserva.textContent += ' - Disponible';
@@ -115,12 +116,17 @@ function controlarPanelUsuario(){
 document.getElementById('cerrarSesion').addEventListener('click', function() {
   localStorage.removeItem('usuarioLogueado');
   localStorage.removeItem('nombreUsuario');
+  localStorage.removeItem('idUsuario');
   location.reload();
 });
 
 function manejarAvisoEstadoLogeo(){
   const avisoEstadoLogeo = document.getElementById('avisoEstadoLogeo');
   avisoEstadoLogeo.style.display = 'flex';
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
   document.getElementById('cerrarAvisoLogeo').addEventListener('click', function() {
     avisoEstadoLogeo.style.display = 'none';
   });
